@@ -8,7 +8,8 @@ from utils.preprocess import get_caption, get_text_tokens
 from src import AudioProjector, mse_loss, info_nce_loss
 
 # Load config files
-with open("config/model_config.yaml", "r") as f:
+config_path = "config/model_config.yaml"
+with open(config_path, "r") as f:
     config = yaml.safe_load(f)
 
 DATA_DIR = config["data_dir"]
@@ -77,17 +78,14 @@ def objective(trial):
 
     return total_loss
 
-# Run Optuna study
 
 study = optuna.create_study(direction="minimize")
 study.optimize(objective, n_trials=10)
 
-print("Best hyperparameters:", study.best_trial.params)
-save_path = "config/best_hyperparams.yaml"
+best_params = study.best_trial.params
+print("Best hyperparameters:", best_params)
 
-os.makedirs(os.path.dirname(save_path), exist_ok=True)
-
-with open(save_path, "w") as f:
-    yaml.dump(study.best_trial.params, f)
-
-print(f"Best hyperparameters saved to {save_path}")
+config.update(best_params)
+with open(config_path, "w") as f:
+    yaml.dump(config, f)
+print(f"model_config.yaml updated with best parameters.")
