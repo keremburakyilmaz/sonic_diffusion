@@ -22,8 +22,7 @@ EPOCHS = config["epochs"]
 LR = config["learning_rate"]
 DATA_DIR = config["data_dir"]
 SAVE_PATH = config["save_path"]
-
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+DEVICE = config["device"]
 
 # Load the data
 dataset = AudioImageDataset(

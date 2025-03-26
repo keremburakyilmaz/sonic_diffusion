@@ -1,0 +1,14 @@
+input_dim: 64          # Number of mel spectrogram bins
+token_dim: 768         # Dimension of output token
+num_tokens: 77         # Number of tokens
+conv_channels: 512     # Hidden channels in conv
+kernel_size: 3         # Conv kernel size
+
+batch_size: 4
+epochs: 20
+learning_rate: 1e-4
+
+data_dir: "dataset"
+save_path: "checkpoints/audio_projector.pt"
+
+device: 'torch.device("cuda" if torch.cuda.is_available() else "cpu")'
