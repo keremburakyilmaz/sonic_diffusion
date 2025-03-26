@@ -10,6 +10,7 @@ This project implements **audio-conditioned image generation and editing** using
 sonic_diffusion/
 ├── README.md
 ├── requirements.txt
+├── dataset
 ├── config/
 │   └── model_config.yaml        # Model architecture, training hyperparameters, etc.
 ├── src/
@@ -19,10 +20,12 @@ sonic_diffusion/
 │   ├── diffusion_model.py       # Modified Stable Diffusion model with audio conditioning
 │   ├── losses.py                # Custom loss functions (e.g., InfoNCE, MSE for projector training)
 │   ├── train.py                 # Training pipeline (Stage 1: Audio Projector, Stage 2: Diffusion)
+|   ├── tune.py                  # Optimizing hyperparameters using Optuna.
 │   └── inference.py             # Image generation and editing scripts for inference
 └── utils/
     ├── __init__.py
     ├── data_loader.py           # Audio/image dataset loading and preprocessing
+    ├── preprocess.py            # Preprocessing the data (getting captions and tokenizing the captions)
     └── transforms.py            # Audio and image transformations (spectrograms, normalization, etc.)
 ```
 
