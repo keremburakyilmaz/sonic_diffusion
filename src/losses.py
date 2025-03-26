@@ -2,17 +2,11 @@ import torch
 import torch.nn.functional as F
 
 def mse_loss(audio_tokens, text_tokens):
-    """
-    audio_tokens: [batch, num_tokens, dim]
-    text_tokens: [batch, num_tokens, dim]
-    """
+# aligns audio tokens to text tokens extracted from the image caption
     return F.mse_loss(audio_tokens, text_tokens)
 
 def info_nce_loss(a0, a1, negatives, temperature = 0.07):
-    """
-    a0, a1: audio embeddings from same class, shape [B, D]
-    negatives: audio embeddings from different classes, shape [B, N, D]
-    """
+# makes sure that similar sounds stay close in latent space, while different ones are pushed apart
 
     # Normalize
     a0 = F.normalize(a0, dim=-1)
