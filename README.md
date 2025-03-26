@@ -2,6 +2,11 @@
 
 This project implements **audio-conditioned image generation and editing** using pretrained diffusion models. Inspired by the [SonicDiffusion](https://arxiv.org/abs/2405.00878) paper, we extend the Stable Diffusion pipeline by injecting audio features into the image generation process via gated cross-attention.
 
+Audio → Tokens ↘
+                → Shared Embedding Space → Image
+Image → Caption ↗
+
+
 ---
 
 ## Project Structure
