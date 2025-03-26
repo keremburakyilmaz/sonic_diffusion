@@ -11,6 +11,7 @@ sonic_diffusion/
 ├── README.md
 ├── requirements.txt
 ├── dataset
+├── download_pretrained.py       # Python script to download necessary pretrained models.
 ├── config/
 │   └── model_config.yaml        # Model architecture, training hyperparameters, etc.
 ├── src/
