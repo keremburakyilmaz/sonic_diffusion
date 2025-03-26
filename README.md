@@ -64,6 +64,7 @@ sonic_diffusion/
 git clone https://github.com/yourusername/sonic_diffusion.git
 cd sonic_diffusion
 pip install -r requirements.txt
+python download_pretrained.py
 ```
 
 Update `config/model_config.yaml` with the paths to your datasets and model settings.
